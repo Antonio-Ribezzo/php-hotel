@@ -65,7 +65,7 @@
 
             <!-- tabella -->
             <div class="d-flex justify-content-center align-items-center">
-                <table class="table table-striped">
+                <table class="table table-striped m-0">
                     <thead>
                       <tr>
                         <?php
@@ -78,11 +78,17 @@
                     <tbody>
                         <?php
                             foreach($hotels as $el){
-                                echo "<tr>" .  "</tr>";
+                                echo "<tr>";
                                 foreach($el as $chiave => $valore){
-                                    echo
-                                     "<td scope='row'>" . $valore . "</td>" ;
+                                    if($chiave == 'name'){
+                                        echo  "<th scope='row'>" . $valore . "</th>";
+                                    } else{
+
+                                        echo 
+                                         "<td scope='row'>" . $valore . "</td>" ;
+                                    }
                                 }
+                                echo  "</tr>";
                             }
                         ?>
                     </tbody>
@@ -104,6 +110,8 @@
             }
             .vh-90{
                 height: 90vh;
+            }
+            table{
             }
         </style>
     </body>
