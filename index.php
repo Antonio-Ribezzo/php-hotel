@@ -1,47 +1,5 @@
 <?php
-    $hotels = [
-        [
-            'name' => 'Hotel Belvedere',
-            'description' => 'Hotel Belvedere Descrizione',
-            'parking' => true,
-            'vote' => 4,
-            'distance_to_center' => 10.4
-        ],
-        [
-            'name' => 'Hotel Futuro',
-            'description' => 'Hotel Futuro Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 2
-        ],
-        [
-            'name' => 'Hotel Rivamare',
-            'description' => 'Hotel Rivamare Descrizione',
-            'parking' => false,
-            'vote' => 1,
-            'distance_to_center' => 1
-        ],
-        [
-            'name' => 'Hotel Bellavista',
-            'description' => 'Hotel Bellavista Descrizione',
-            'parking' => false,
-            'vote' => 5,
-            'distance_to_center' => 5.5
-        ],
-        [
-            'name' => 'Hotel Milano',
-            'description' => 'Hotel Milano Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 50
-        ],
-    ];
-
-    
-    // echo $hotels[0]['name'];
-
-    // echo (array_keys($hotels[0]));
-                         
+      
 ?>
 
 <!DOCTYPE html>
@@ -61,45 +19,35 @@
                 php hotel
             </h1>
         </div>
-        <main class="vh-90 p-3 d-flex flex-column justify-content-center align-items-center">
-
-            <!-- tabella -->
-            <div class="d-flex justify-content-center align-items-center">
-                <table class="table table-striped m-0">
-                    <thead>
-                      <tr>
-                        <?php
-                           foreach($hotels[0] as $chiave => $valore){
-                            echo "<th scope='col'>" . $chiave . "</th>";
-                           }
-                        ?>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($hotels as $el){
-                                echo "<tr>";
-                                foreach($el as $chiave => $valore){
-                                    if($chiave == 'name'){
-                                        echo  "<th scope='row'>" . $valore . "</th>";
-                                    } else{
-
-                                        echo 
-                                         "<td scope='row'>" . $valore . "</td>" ;
-                                    }
-                                }
-                                echo  "</tr>";
-                            }
-                        ?>
-                    </tbody>
-                </table>
+        <main class="vh-90 p-3 d-flex justify-content-center align-items-center">
+            <div class="container">
+                <!-- form  -->
+                <form action="results.php" method="GET" class="row gx-3 gy-2 justify-content-center align-items-center">
+                    <div class="col-sm-3">
+                        <label class="visually-hidden">ParkingChoice</label>
+                         <select class="form-select" name="parkingChoice">
+                            <option value="" selected="">Parking</option>
+                            <option value="1">YES</option>
+                            <option value="0">NO</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="visually-hidden">Preference</label>
+                      <select class="form-select" name="starsChoice">
+                        <option value="" selected="">Stars</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </main>
-
-        
-
-
-
         <!-- script Bootstrap -->
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe' crossorigin='anonymous'></script>
 
@@ -110,8 +58,6 @@
             }
             .vh-90{
                 height: 90vh;
-            }
-            table{
             }
         </style>
     </body>
